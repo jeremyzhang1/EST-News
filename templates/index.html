@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EST News</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel= "stylesheet" href="../static/style.css">
+    </head>
+
+    <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+        <nav class="navbar navbar-expand-md fixed-top">
+
+            <a class="navbar-brand" href="#">EST News</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#entertainment">Entertainment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sports">Sports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#technology">Technology</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="home">
+            <div class="title center-block text-center">
+                <h1>EST News</h1>
+                <h3>Entertainment, Sports, and Technology News</h3>
+            </div>
+            <a href="#entertainment"><i class="fa fa-angle-down"></i></a>
+        </div>
+
+        <div id="entertainment">
+            <div class="padding">
+                <div class="container">
+                    <h1 class="heading">Entertainment</h1>
+                    <div class="row">
+                        {% for entry in entertainment %}
+                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <div class="card">
+                                <a href="{{entry.url}}" target="_blank"><img src="{{entry.urlToImage}}" class="card-img-top"></a>
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="{{entry.url}}" target="_blank">{{entry.title}}</a></h3>
+                                    <p class="text-muted">{{entry.source.name}} | {{entry.publishedAt}}</p>
+                                    <p>{{entry.description}}</p>
+                                    <a class="card-link" href="{{entry.url}}" target="_blank">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sports">
+            <div class="padding">
+                <div class="container">
+                    <h1 class="heading">Sports</h1>
+                    <div class="row">
+                        {% for entry in sports %}
+                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <div class="card">
+                                <a href="{{entry.url}}" target="_blank"><img src="{{entry.urlToImage}}" class="card-img-top"></a>
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="{{entry.url}}" target="_blank">{{entry.title}}</a></h3>
+                                    <p class="text-muted">{{entry.source.name}} | {{entry.publishedAt}}</p>
+                                    <p>{{entry.description}}</p>
+                                    <a class="card-link" href="{{entry.url}}" target="_blank">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="technology">
+            <div class="padding">
+                <div class="container">
+                    <h1 class="heading">Technology</h1>
+                    <div class="row">
+                        {% for entry in technology %}
+                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <div class="card">
+                                <a href="{{entry.url}}" target="_blank"><img src="{{entry.urlToImage}}" class="card-img-top"></a>
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="{{entry.url}}" target="_blank">{{entry.title}}</a></h3>
+                                    <p class="text-muted">{{entry.source.name}} | {{entry.publishedAt}}</p>
+                                    <p>{{entry.description}}</p>
+                                    <a class="card-link" href="{{entry.url}}" target="_blank">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="container-fluid text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Connect</h3>
+                    <a href="https://www.github.com/jeremyzhang1" class="fa fa-github-square" target="_blank"></a>
+                    <a href="https://www.linkedin.com/in/jeremyzhang1" class="fa fa-linkedin-square" target="_blank"></a>
+                    <a href="mailto:jeremyzhang@college.harvard.edu" class="fa fa-envelope"></a>
+                </div>
+            </div>
+            <p>Made by Jeremy Zhang</p>
+            <p class="text-muted">Landing page background photo courtesy of Wallpaper Safari</p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,165 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    background-color: black;
+    -webkit-box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 29px 5px rgba(0,0,0,0.75);
+    
+    font-size: 1.2em;
+}
+
+.navbar-toggler {
+    border-color:#dadada;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(213,213,213,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler:hover {
+    border-color:#fff;
+}
+
+.navbar-toggler-icon:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-brand {
+    color:#dadada;
+}
+
+.navbar-brand:hover{
+    color: #fff;
+}
+
+.navbar-nav li a {
+    color: #dadada;
+}
+
+.navbar-nav li a:hover, 
+.navbar-nav li a.active {
+    color: #fff;
+    background: transparent;
+}
+
+.title {
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 40%;
+    z-index: 1;
+    text-shadow: 2px 2px 5px black;
+}
+
+.title h1 {
+    color: white;
+    font-size: 5rem;
+    padding-bottom: 1rem;
+}
+
+.title h3 {
+    color: white;
+}
+
+i.fa-angle-down {
+    font-size: 36px;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+    -webkit-transition: font-size 0.3s;
+       -moz-transition: font-size 0.3s;
+         -o-transition: font-size 0.3s;
+            transition: font-size 0.3s;
+}
+
+i.fa-angle-down:hover {
+    font-size: 54px;
+}
+
+.btn {
+    border-width: 2px;
+    border-radius: 2;
+    padding: .5rem 1.1rem;
+    text-shadow: none !important;
+}
+
+#home {
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("https://img.wallpapersafari.com/desktop/1920/1080/55/99/tBwY6J.jpg") no-repeat center center fixed;
+    height: 100%;
+    display: table;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+}
+
+.padding {
+    padding: 10px 0px;
+}
+
+.padding h1 {
+    padding: 50px 0px 20px 0;
+    font-size: 48px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.description {
+    font-size: larger;
+}
+
+h3 a,
+h3 a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.card {
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: 25vh;
+    object-fit: cover;
+}
+
+@media (max-width: 1280px){
+    .card-img-top {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+    }
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+    padding: 5% 5% 5% 5%;
+    color: #fff;
+}
+
+.fa {
+    padding: 15px 5px;
+    font-size: 25px;
+    color: #fff;
+}
+
+.fa-heart {
+    font-size: 1em;
+}
+
+.fa:hover {
+    color: #d5d5d5;
+    text-decoration: none;
+}
