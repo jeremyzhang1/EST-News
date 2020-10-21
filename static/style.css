@@ -62,7 +62,7 @@ html, body {
     padding-bottom: 1rem;
 }
 
-.title h3 {
+.title h4 {
     color: white;
 }
 
@@ -161,5 +161,10 @@ footer {
 
 .fa:hover {
     color: #d5d5d5;
+    text-decoration: none;
+}
+
+.fa-heart:hover {
+    color: #fff !important;
     text-decoration: none;
 }
