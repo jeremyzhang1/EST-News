@@ -1,12 +1,13 @@
 from flask import Flask, render_template
 from newsapi import NewsApiClient
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def Index():
-    api = NewsApiClient(api_key='4cc7e5c83c7a4b778f048e6796c0ef0c')
+    api = NewsApiClient(api_key=os.environ['NEW_API_KEY'])
 
     #Use News Api to get the news for the following categories
     entertainment = api.get_top_headlines(category="entertainment", country="us")
