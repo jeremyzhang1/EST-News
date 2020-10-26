@@ -46,6 +46,16 @@
                 <h1>EST News</h1>
                 <h4>The latest entertainment, sports, and technology news.</h4>
                 <h4>Conveniently displayed on one webpage.</h4>
+                <h4>Search for news</h4>
+                <br>
+                <form class="form-inline" action="/" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="searchbar" placeholder="Search" name="search_query">
+                        <input class="btn btn-outline-light" id="searchbutton" type="submit">
+                    </div>
+                </form>
+                <br>
+                <h4>Or browse the latest headlines</h4>
                 <a class="btn btn-outline-light" href="#entertainment">Entertainment</a>
                 <a class="btn btn-outline-light" href="#sports">Sports</a>
                 <a class="btn btn-outline-light" href="#technology">Technology</a>
@@ -71,6 +81,8 @@
                             </div>
                         </div>
                         <br>
+                        {% else %}
+                        <p class="warning">No entertainment articles found for this search query</p>
                         {% endfor %}
                     </div>
                     <a href="#">Return to top</a>
@@ -96,6 +108,8 @@
                             </div>
                         </div>
                         <br>
+                        {% else %}
+                        <p class="warning">No sports articles found for this search query</p>
                         {% endfor %}
                     </div>
                     <a href="#">Return to top</a>
@@ -121,6 +135,8 @@
                             </div>
                         </div>
                         <br>
+                        {% else %}
+                        <p class="warning">No technology articles found for this search query</p>
                         {% endfor %}
                     </div>
                     <a href="#">Return to top</a>

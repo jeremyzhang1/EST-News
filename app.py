@@ -1,17 +1,31 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from newsapi import NewsApiClient
-from datetime import datetime
+import os
 
 app = Flask(__name__)
+first_boot = True
 
-@app.route('/')
+@app.route('/', methods=["GET","POST"])
 def Index():
-    api = NewsApiClient(api_key='4cc7e5c83c7a4b778f048e6796c0ef0c')
+    global first_boot
+    #Setup the API Key
+    api = NewsApiClient(api_key=os.environ['NEWS_API_KEY'])
 
-    #Use News Api to get the news for the following categories
-    entertainment = api.get_top_headlines(category="entertainment", country="us")
-    sports = api.get_top_headlines(category="sports", country="us")
-    technology = api.get_top_headlines(category="technology", country="us")
+    #Get the search query from the HTML form
+    query = request.form.get("search_query")
+
+    #Display top headlines if the page was first loaded or if the query is invalid 
+    if first_boot is True or query == None:
+        first_boot = False
+        #Use News API to get the news for the three categories
+        entertainment = api.get_top_headlines(category="entertainment", country="us")
+        sports = api.get_top_headlines(category="sports", country="us")
+        technology = api.get_top_headlines(category="technology", country="us")
+    else:
+        #Search in the three categories with the user's search query
+        entertainment = api.get_top_headlines(q=query, category="entertainment", country="us")
+        sports = api.get_top_headlines(q=query, category="sports", country="us")
+        technology = api.get_top_headlines(q=query, category="technology", country="us")
 
     #Store the articles
     entertainment = entertainment['articles']
@@ -25,23 +39,23 @@ def Index():
         #Give a default thumbnail if there is no thumbnail image provided
         if entertainment[i]['urlToImage'] == None:
             entertainment[i]['urlToImage'] = "https://motionarray.imgix.net/preview-247810-wmhtcGFuxa-high_0004.jpg"
-        #Mark the description as an empty string instead of it saying "None" when there is no description provided
+        #Give default description when none is provided
         if entertainment[i]['description'] == None:
-            entertainment[i]['description'] = ""
+            entertainment[i]['description'] = "No description found."
 
     for i in range(len(sports)):
         sports[i]['publishedAt'] = sports[i]['publishedAt'][0:sports[i]['publishedAt'].find('T')]
         if sports[i]['urlToImage'] == None:
             sports[i]['urlToImage'] = "https://motionarray.imgix.net/preview-247810-wmhtcGFuxa-high_0004.jpg"
         if sports[i]['description'] == None:
-            sports[i]['description'] = ""
+            sports[i]['description'] = "No description found"
 
     for i in range(len(technology)):
         technology[i]['publishedAt'] = technology[i]['publishedAt'][0:technology[i]['publishedAt'].find('T')]
         if technology[i]['urlToImage'] == None:
             technology[i]['urlToImage'] = "https://motionarray.imgix.net/preview-247810-wmhtcGFuxa-high_0004.jpg"
         if technology[i]['description'] == None:
-            technology[i]['description'] = ""
+            technology[i]['description'] = "No description found"
             
     #Pass the articles into the webpage template
     return render_template('index.html', entertainment=entertainment, sports=sports, technology=technology)

@@ -51,7 +51,7 @@ html, body {
     width: 100%;
     max-width: 100%;
     position: absolute;
-    top: 40%;
+    top: 20%;
     z-index: 1;
     text-shadow: 2px 2px 5px black;
 }
@@ -101,6 +101,24 @@ i.fa-angle-down:hover {
     background-size: cover;
 }
 
+#searchbar{
+    width: 50%;
+    height: 3em;
+    position: absolute;
+    left: 25%;
+}
+
+.form-control:focus{
+    border-color: black;
+    box-shadow: 0 0 0 0.2rem rgba(0,0,0,0);
+}
+
+#searchbutton{
+    height: 3em;
+    position: absolute;
+    left: 75%;
+}
+
 .padding {
     padding: 10px 0px;
 }
@@ -116,6 +134,11 @@ i.fa-angle-down:hover {
 
 .description {
     font-size: larger;
+}
+
+.warning{
+    text-align: center;
+    color: red;
 }
 
 h3 a,
