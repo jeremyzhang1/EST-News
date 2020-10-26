@@ -137,8 +137,7 @@ i.fa-angle-down:hover {
 }
 
 .warning{
-    text-align: center;
-    color: red;
+    text-align: center !important;
 }
 
 h3 a,
