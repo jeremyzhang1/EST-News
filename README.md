@@ -1,6 +1,5 @@
-# EST-News
-EST-News is a web app that searches for and displays entertainment, sports, and technology news.  
-Built with Flask and the News API, deployed using Heroku  
+# EST News
+EST News is a web app that searches for and displays entertainment, sports, and technology news that is built with Flask and the News API, and deployed using Heroku.  
 https://est-news.herokuapp.com/  
 Link to the GitHub repository:  
 https://github.com/jeremyzhang1/EST-News
@@ -10,10 +9,13 @@ EST-News was designed using Flask to handle API calls and user requests.
 A user interface was built using HTML, Bootstrap, and CSS.  
 Favicon generation was done using favicon.io.  
 
-The app was designed to have two paths. Upon loading of the webpage, articles would already be populated if the user just wanted to browse.  
+Upon loading of the webpage, articles would already be populated if the user just wanted to browse.  
 If the user's query was invalid (empty query), then the top entertainment, sports, and tech articles would be displayed.  
-Each API call returns lots of information, however, I will only retained the 'articles' portion of the information,
-which contains article metadata as well as links to the articles.
+Each API call returns lots of information, however, I will only retained the 'articles' portion of the information, which contains article metadata as well as links to the articles. Articles from all languages and all regions of the world are included in the displayed results, since I wanted to make this app usable by as many people around the world as possible.
+
+NewsAPI will sometimes return duplicate articles, so those duplicates must be removed.  
+The algorithm to do so is outlined in this article:  
+https://www.geeksforgeeks.org/python-removing-duplicate-dicts-in-list/
 
 Then, error handling and some data processing must happen next.  
 For each of the three categories, the 'publishedAt' field is converted into a readable YYYY-MM-DD date.  

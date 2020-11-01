@@ -18,20 +18,25 @@ def Index():
     if first_boot is True or query == None:
         first_boot = False
         #Use News API to get the news for the three categories
-        entertainment = api.get_top_headlines(category="entertainment", country="us")
-        sports = api.get_top_headlines(category="sports", country="us")
-        technology = api.get_top_headlines(category="technology", country="us")
+        entertainment = api.get_top_headlines(category="entertainment")
+        sports = api.get_top_headlines(category="sports")
+        technology = api.get_top_headlines(category="technology")
     else:
         #Search in the three categories with the user's search query
-        entertainment = api.get_top_headlines(q=query, category="entertainment", country="us")
-        sports = api.get_top_headlines(q=query, category="sports", country="us")
-        technology = api.get_top_headlines(q=query, category="technology", country="us")
+        entertainment = api.get_top_headlines(q=query, category="entertainment")
+        sports = api.get_top_headlines(q=query, category="sports")
+        technology = api.get_top_headlines(q=query, category="technology")
 
     #Store the articles
     entertainment = entertainment['articles']
     sports = sports['articles']
     technology = technology['articles']
 
+    #Remove duplicate articles
+    entertainment = [i for n, i in enumerate(entertainment) if i not in entertainment[n + 1:]]
+    sports = [i for n, i in enumerate(sports) if i not in sports[n + 1:]]
+    technology = [i for n, i in enumerate(technology) if i not in technology[n + 1:]] 
+    
     #Sanitize inputs
     for i in range(len(entertainment)):
         #Only keep the date, not the time
